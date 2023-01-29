@@ -10,7 +10,7 @@ by adding `toukon` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:toukon, "~> 0.1.0"}
+    {:toukon, "~> 0.1.0", github: "TORIFUKUKaiou/toukon"}
   ]
 end
 ```
