@@ -44,6 +44,9 @@ defmodule Toukon do
 
   defp build_funs(mod, add_args) do
     mod.__info__(:functions)
+    |> Enum.reject(fn {name, _} ->
+      name in [:+, :!=, :!==, :*, :**, :++, :-, :--, :/, :<, :<=, :==, :===, :=~, :>, :>=, :not]
+    end)
     |> Enum.map(fn {name, arity} ->
       """
       def #{name}(#{build_args(arity, add_args)}), do: #{mod}.#{name}(#{build_args(arity, [])})
